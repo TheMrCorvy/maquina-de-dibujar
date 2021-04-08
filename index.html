@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="./index.css" />
 	</head>
 	<body>
-		<div class="paleta d-none"></div>
+		<form class="paleta d-none" id="paleta"></form>
 
 		<div class="container">
 			<form id="iniciar_maquina" class="init">
@@ -20,10 +20,18 @@
 				<input type="number" name="columnas" id="columnas" />
 
 				<input type="submit" value="iniciar maquina" class="submit" />
+
+				<p id="mensaje" class="d-none">
+					<strong>La cantidad de filas y/o columnas debe ser distinta de 0.</strong>
+				</p>
 			</form>
 
-			<div class="innerContainer d-none"></div>
+			<div class="innerContainer d-none" id="inner_container"></div>
 		</div>
+		<div class="instrucciones d-none" id="instrucciones">
+			<p>Instrucciones: Para moverse use las flechas de su teclado, y para pintar, presione
+                Enter.</p>
+        </dic>
 
 		<script src="./index.js"></script>
 	</body>

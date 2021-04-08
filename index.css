@@ -1,12 +1,14 @@
 .paleta {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	flex-direction: row;
 	flex-grow: 1;
+	margin-bottom: 25px;
+	padding-top: 15px;
 }
 
 .d-none {
-	display: none;
+	display: none !important;
 }
 
 .container {
@@ -14,6 +16,19 @@
 	justify-content: center;
 	flex-direction: row;
 	flex-grow: 1;
+}
+
+.innerContainer {
+	display: flex;
+	flex-direction: row;
+}
+
+.instrucciones {
+	display: flex;
+	flex-grow: 1;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .init {
@@ -34,4 +49,34 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-transform: uppercase;
+}
+
+.casilla {
+	border: solid 2px;
+	background-color: white;
+	margin-bottom: 15px;
+	height: 20px;
+	width: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.activo {
+	border: solid 5px !important;
+	margin-bottom: 9px !important;
+}
+
+.columna {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-right: 15px;
+}
+
+.rojo {
+	background-color: red;
+}
+
+.azul {
+	background-color: blue;
 }
