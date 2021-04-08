@@ -1,0 +1,37 @@
+.paleta {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+.d-none {
+	display: none;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+.init {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 70%;
+	min-width: 20rem;
+}
+
+.label {
+	margin-top: 20px;
+	padding-bottom: 5px;
+}
+
+.submit {
+	margin-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-transform: uppercase;
+}
