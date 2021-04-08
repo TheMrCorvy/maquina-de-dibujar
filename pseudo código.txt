@@ -112,7 +112,7 @@ función iniciarLapiz(lienzo) recibe como parámetro un objeto con propiedad can
 
     crea un oyente para los siguientes eventos:
 
-    1) flecha hacia adelante:
+    1) flecha hacia arriba:
         constante resultadoDeBusqueda = si y solo si el elemento actualmenteActivo tiene un valor y mayor a 0, busca al elemento con y = actualmenteActivo.y -1
 
         condicional: si el resultadoDeBusqueda existe:
@@ -128,9 +128,9 @@ función iniciarLapiz(lienzo) recibe como parámetro un objeto con propiedad can
     cierre caso 1
 
 
-    2) flecha hacia atrás:
+    2) flecha hacia abajo:
 
-        constante resultadoDeBusqueda = si y solo si la suma de el elemento actualmenteActivo.y +1 es menor o igual a lienzo.cantidadY, entonces busca al elemento 
+        constante resultadoDeBusqueda = si y solo si la suma de el elemento actualmenteActivo.y +1 es menor a lienzo.cantidadY, entonces busca al elemento 
         con y = actualmenteActivo.y +1 y continua con el resto del caso 2
 
         condicional: si el resultadoDeBusqueda existe:

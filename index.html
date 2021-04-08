@@ -14,15 +14,18 @@
 		<div class="container">
 			<form id="iniciar_maquina" class="init">
 				<label for="filas" class="label">Indica cantidad de filas:</label>
-				<input type="number" name="filas" id="filas" />
+				<input type="number" name="filas" id="filas" value="10" />
 
 				<label for="columnas" class="label">Indica cantidad de columnas:</label>
-				<input type="number" name="columnas" id="columnas" />
+				<input type="number" name="columnas" id="columnas" value="10" />
 
 				<input type="submit" value="iniciar maquina" class="submit" />
 
 				<p id="mensaje" class="d-none">
 					<strong>La cantidad de filas y/o columnas debe ser distinta de 0.</strong>
+				</p>
+				<p id="advertencia" class="d-none">
+					<strong>La cantidad de filas y/o columnas debe ser menor o igual a 35, por que se sale de la pantalla.</strong>
 				</p>
 			</form>
 

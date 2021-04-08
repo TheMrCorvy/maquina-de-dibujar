@@ -24,19 +24,21 @@ window.addEventListener("load", () => {
 			cantFC.X = Number(e.target[0].value)
 			cantFC.Y = Number(e.target[1].value)
 
-			e.target.classList.remove("init")
-			e.target.classList.add("d-none")
+			if (cantFC.X <= 35 && cantFC.Y <= 35) {
+				e.target.classList.remove("init")
+				e.target.classList.add("d-none")
 
-			container.classList.remove("d-none")
+				container.classList.remove("d-none")
 
-			document.getElementById("instrucciones").classList.remove("d-none")
+				document.getElementById("instrucciones").classList.remove("d-none")
 
-			iniciarMaquina()
+				iniciarMaquina()
+			} else {
+				document.getElementById("advertencia").classList.remove("d-none")
+			}
 		} else {
 			document.getElementById("mensaje").classList.remove("d-none")
 		}
-
-		console.log(cantFC)
 	})
 })
 
@@ -49,14 +51,14 @@ function iniciarMaquina() {
 }
 
 function mostrarLienzo() {
-	//bucle de columnas
-	for (let y = 0; y < cantFC.Y; y++) {
+	//bucle de filas
+	for (let y = 0; y < cantFC.X; y++) {
 		const columna = document.createElement("div")
 
 		columna.classList.add("columna")
 
-		//bucle de filas
-		for (let x = 0; x < cantFC.X; x++) {
+		//bucle de columnas
+		for (let x = 0; x < cantFC.Y; x++) {
 			const casilla = document.createElement("div")
 
 			casilla.classList.add("casilla")
@@ -67,8 +69,9 @@ function mostrarLienzo() {
 				actualmenteActivo = casilla
 			}
 
-			casilla.setAttribute("x", x)
-			casilla.setAttribute("y", y)
+			//por un error de calculo mio, este valor quedó invertido...
+			casilla.setAttribute("y", x)
+			casilla.setAttribute("x", y)
 
 			casilla.setAttribute("pintado", false)
 			casilla.setAttribute("colorDePintura", "")
@@ -119,4 +122,109 @@ function cambiarColor(indice) {
 	}
 }
 
-function iniciarLapiz() {}
+function iniciarLapiz() {
+	document.addEventListener("keydown", (e) => {
+		let resultadoDeBusqueda
+
+		let coordenadas = {
+			Y: Number(actualmenteActivo.getAttribute("y")),
+			X: Number(actualmenteActivo.getAttribute("x")),
+		}
+
+		switch (e.key) {
+			case "ArrowUp":
+				if (coordenadas.Y > 0) {
+					const criterioDeBusqueda = `[y="${coordenadas.Y - 1}"][x="${coordenadas.X}"]`
+
+					resultadoDeBusqueda = document.querySelector(criterioDeBusqueda)
+
+					actualmenteActivo.classList.remove("activo")
+
+					resultadoDeBusqueda.classList.add("activo")
+
+					actualmenteActivo = resultadoDeBusqueda
+
+					coordenadas = {
+						Y: Number(actualmenteActivo.getAttribute("y")),
+						X: Number(actualmenteActivo.getAttribute("x")),
+					}
+				}
+
+				break
+			case "ArrowDown":
+				if (coordenadas.Y + 1 < cantFC.Y) {
+					const criterioDeBusqueda = `[y="${coordenadas.Y + 1}"][x="${coordenadas.X}"]`
+
+					resultadoDeBusqueda = document.querySelector(criterioDeBusqueda)
+
+					actualmenteActivo.classList.remove("activo")
+
+					resultadoDeBusqueda.classList.add("activo")
+
+					actualmenteActivo = resultadoDeBusqueda
+
+					coordenadas = {
+						Y: Number(actualmenteActivo.getAttribute("y")),
+						X: Number(actualmenteActivo.getAttribute("x")),
+					}
+				}
+
+				break
+
+			case "ArrowLeft":
+				if (coordenadas.X > 0) {
+					const criterioDeBusqueda = `[y="${coordenadas.Y}"][x="${coordenadas.X - 1}"]`
+
+					resultadoDeBusqueda = document.querySelector(criterioDeBusqueda)
+
+					actualmenteActivo.classList.remove("activo")
+
+					resultadoDeBusqueda.classList.add("activo")
+
+					actualmenteActivo = resultadoDeBusqueda
+
+					coordenadas = {
+						Y: Number(actualmenteActivo.getAttribute("y")),
+						X: Number(actualmenteActivo.getAttribute("x")),
+					}
+				}
+
+				break
+
+			case "ArrowRight":
+				if (coordenadas.X + 1 < cantFC.X) {
+					const criterioDeBusqueda = `[y="${coordenadas.Y}"][x="${coordenadas.X + 1}"]`
+
+					resultadoDeBusqueda = document.querySelector(criterioDeBusqueda)
+
+					actualmenteActivo.classList.remove("activo")
+
+					resultadoDeBusqueda.classList.add("activo")
+
+					actualmenteActivo = resultadoDeBusqueda
+
+					coordenadas = {
+						Y: Number(actualmenteActivo.getAttribute("y")),
+						X: Number(actualmenteActivo.getAttribute("x")),
+					}
+				}
+
+				break
+			case "Enter":
+				if (
+					actualmenteActivo.classList.contains("rojo") ||
+					actualmenteActivo.classList.contains("azul")
+				) {
+					actualmenteActivo.classList.remove("rojo")
+					actualmenteActivo.classList.remove("azul")
+				}
+
+				actualmenteActivo.classList.add(colorActual)
+
+				break
+
+			default:
+				break
+		}
+	})
+}

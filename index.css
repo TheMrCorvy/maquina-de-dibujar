@@ -59,18 +59,20 @@
 	width: 20px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-right: 15px;
 }
 
 .activo {
 	border: solid 5px !important;
 	margin-bottom: 9px !important;
+	margin-right: 10px !important;
+	margin-right: 9px !important;
 }
 
 .columna {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	margin-right: 15px;
 }
 
 .rojo {
