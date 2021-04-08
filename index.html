@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Máquina de dibujar</title>
+
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<div class="paleta d-none"></div>
+
+		<div class="container">
+			<form id="iniciar_maquina" class="init">
+				<label for="filas" class="label">Indica cantidad de filas:</label>
+				<input type="number" name="filas" id="filas" />
+
+				<label for="columnas" class="label">Indica cantidad de columnas:</label>
+				<input type="number" name="columnas" id="columnas" />
+
+				<input type="submit" value="iniciar maquina" class="submit" />
+			</form>
+
+			<div class="innerContainer d-none"></div>
+		</div>
+
+		<script src="./index.js"></script>
+	</body>
+</html>
